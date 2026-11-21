@@ -1,0 +1,7 @@
+question,query_type,expected_tools,agentic_advantage
+"What are the main limitations of Naive RAG in enterprise applications?","single_hop_semantic","document_search","Direct semantic search in indexed architecture document"
+"Compare NVIDIA H100 vs NVIDIA A100 architecture and tensor cores.","multi_hop_comparison","comparative_analyzer, document_search","Dual retrieval and structured side-by-side comparison"
+"What is the cheapest cloud GPU instance in the pricing table?","tabular_structured","table_data_analyzer","Queries structured CSV DataFrame instead of guessing from text"
+"If H100 delivers 989 TFLOPS and A100 delivers 312 TFLOPS, calculate the percentage increase.","arithmetic_calculation","calculator","Guarantees deterministic arithmetic accuracy without LLM calculation error"
+"What is the Transformer Engine in Hopper and how does it utilize FP8?","single_hop_semantic","document_search","Precise extraction from technical hardware specification"
+"Provide an executive summary of enterprise agentic architectures.","summarization","document_summary","Abstractive overview across multiple sections"

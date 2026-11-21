@@ -1,0 +1,8 @@
+provider,instance_type,vcpus,ram_gb,gpu_type,hourly_cost_usd,monthly_cost_usd,network_bandwidth_gbps,availability_sla_percent
+AWS,p4de.24xlarge,96,1152,8x NVIDIA A100 80GB,32.77,23600,400,99.99
+Google Cloud,a2-ultragpu-8g,96,1360,8x NVIDIA A100 80GB,30.20,21744,100,99.99
+Microsoft Azure,ND96amsr_A100_v4,96,900,8x NVIDIA A100 80GB,32.00,23040,200,99.95
+Oracle Cloud,BM.GPU4.8,64,2048,8x NVIDIA A100 40GB,24.40,17568,100,99.90
+AWS,g5.12xlarge,48,192,4x NVIDIA A10G 24GB,5.67,4082,50,99.99
+Google Cloud,g2-standard-48,48,192,4x NVIDIA L4 24GB,4.80,3456,50,99.99
+Microsoft Azure,NC48ads_A100_v4,48,440,2x NVIDIA A100 80GB,16.50,11880,100,99.95

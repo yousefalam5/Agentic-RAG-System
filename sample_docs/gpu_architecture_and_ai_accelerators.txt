@@ -1,0 +1,26 @@
+# GPU Architecture and Dedicated AI Accelerators
+
+## 1. NVIDIA Hopper Architecture (H100 & H200)
+The NVIDIA Hopper H100 GPU represents a major architectural leap over the Ampere A100 generation, designed specifically for hyperscale AI model training and low-latency inference:
+- Transistor Count & Manufacturing: Fabricated on a custom TSMC 4N process with 80 billion transistors.
+- Tensor Core Fourth Generation: Introduces the Transformer Engine, which dynamically switches between FP8 (8-bit floating point) and FP16/BF16 arithmetic during training and inference. This doubles throughput compared to pure FP16 execution without sacrificing numerical stability.
+- Memory Bandwidth: The H100 SXM5 features 80GB of HBM3 memory delivering 3.35 TB/sec memory bandwidth, while the H200 expands capacity to 141GB of HBM3e delivering 4.8 TB/sec.
+- Interconnect: Fourth-generation NVLink delivers 900 GB/sec bidirectional GPU-to-GPU bandwidth, which is 7x higher than PCIe Gen 5.
+
+## 2. NVIDIA Ampere Architecture (A100)
+The previous generation Ampere A100 remains an industry workhorse for enterprise deep learning clusters:
+- Manufacturing: Built on TSMC 7nm process with 54 billion transistors.
+- Tensor Cores Third Generation: Introduced TensorFloat-32 (TF32), which accelerates standard FP32 math by up to 10x without code changes.
+- Memory: Offered in 40GB and 80GB HBM2e variants delivering 1.55 TB/sec to 2.0 TB/sec bandwidth.
+- Multi-Instance GPU (MIG): Allows partitioning a single physical A100 into up to seven fully isolated hardware GPU instances with dedicated compute cores and memory partitions.
+
+## 3. Google Tensor Processing Unit (TPU v5p & v5e)
+Google designed custom Application-Specific Integrated Circuits (ASICs) tailored exclusively for matrix operations in neural networks:
+- TPU v5p: Designed for large-scale training, arranged in pods of up to 8,960 chips interconnected by an ultra-low latency Optical Circuit Switch (OCS) mesh delivering 459 TFLOPS of BF16 compute per chip.
+- TPU v5e: Optimized for cost-effective inference and mid-scale training, offering 197 TFLOPS of BF16 compute at approximately one-third the operational cost of v5p.
+- Matrix Multiply Units (MXUs): Use systolic array architectures where data streams through a fixed grid of arithmetic logic units, reducing registers and memory bus traffic.
+
+## 4. Architectural Comparison: H100 vs A100
+- Raw FP8 Tensor Compute: H100 provides up to 1,979 TFLOPS compared to 0 TFLOPS on A100 (which lacks native FP8 hardware support).
+- FP16 Tensor Compute: H100 delivers 989 TFLOPS vs A100's 312 TFLOPS (an approximate 3.17x theoretical speedup).
+- Energy Efficiency: H100 delivers over 3x the performance-per-watt on large language model training workloads.

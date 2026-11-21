@@ -1,0 +1,26 @@
+# Enterprise AI Systems: From Naive RAG to Autonomous Agentic Architectures
+
+## 1. Limitations of Naive RAG
+Standard (or Naive) RAG systems adhere to a rigid, single-hop sequential pipeline:
+1. Embed user query into a fixed dense vector representation.
+2. Retrieve the top-k nearest document chunks from a vector database using cosine distance.
+3. Concatenate the retrieved text passages directly into a prompt template and pass it to a large language model.
+
+While effective for simple factoid lookups, Naive RAG suffers from severe failure modes in production:
+- Inability to answer multi-hop questions requiring information spread across distinct sections or documents.
+- Vulnerability to irrelevant or noisy retrieved chunks that distract the generator and induce hallucinations.
+- Lack of tool execution: The LLM cannot perform arithmetic, query SQL/CSV databases, or verify its own logical consistency.
+
+## 2. The Agentic RAG Paradigm
+Agentic RAG transforms the passive generative pipeline into an active, autonomous problem-solving agent driven by reasoning frameworks such as ReAct (Reasoning and Acting) and Plan-and-Solve:
+- Decomposed Planning: The agent analyzes the user's objective and constructs a multi-step execution plan before initiating retrieval.
+- Dynamic Tool Dispatching: The agent dynamically selects tools from an integrated registry based on the current sub-goal.
+- Iterative Observation and Correction: After invoking a tool, the agent evaluates the observation. If the retrieved context is insufficient or ambiguous, it reformulates queries or pivots to alternative tools.
+- Multi-Source Synthesis: The agent combines unstructured text evidence with structured data analysis and numerical calculations into a cohesive, verified response.
+
+## 3. Tool Architecture for Enterprise Agents
+A robust Agentic RAG system incorporates specialized tools:
+- Semantic Document Retrieval (`document_search`): Queries vector databases with targeted keyword or semantic representations.
+- Document Summarizer (`document_summary`): Generates abstractive summaries of extensive source materials.
+- Deterministic Calculator (`calculator`): Executes exact mathematical formulas (such as percentage changes, ROI calculations, and ratio comparisons) to avoid LLM arithmetic errors.
+- Tabular Data Analyzer (`table_data_analyzer`): Uses Python code or pandas DataFrame filtering to query structured tables, compute aggregations, and identify extrema.
