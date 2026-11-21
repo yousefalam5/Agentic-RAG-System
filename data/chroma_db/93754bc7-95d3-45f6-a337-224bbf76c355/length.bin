@@ -1,0 +1,4 @@
+## 4. Architectural Comparison: H100 vs A100
+- Raw FP8 Tensor Compute: H100 provides up to 1,979 TFLOPS compared to 0 TFLOPS on A100 (which lacks native FP8 hardware support).
+- FP16 Tensor Compute: H100 delivers 989 TFLOPS vs A100's 312 TFLOPS (an approximate 3.17x theoretical speedup).
+- Energy Efficiency: H100 delivers over 3x the performance-per-watt on large language model training workloads.
